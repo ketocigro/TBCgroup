@@ -2,3 +2,4 @@ Flask
 Flask_WTF
 Flask-SQLAlchemy
 Flask-login
+gunicorn
