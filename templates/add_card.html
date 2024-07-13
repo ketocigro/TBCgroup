@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block body %}
+<div class="container mt-5">
+    <h1 class="mb-4">Add Card Details</h1>
+    <form method="POST" action="{{ url_for('add_card', product_id=product_id, product_type=product_type) }}">
+        {{ form.hidden_tag() }}
+        <div class="mb-3">
+            {{ form.account_number.label(class="form-label") }}
+            {{ form.account_number(class="form-control") }}
+        </div>
+        <div class="mb-3">
+            {{ form.address.label(class="form-label") }}
+            {{ form.address(class="form-control") }}
+        </div>
+        <div class="mb-3">
+            {{ form.phone_number.label(class="form-label") }}
+            {{ form.phone_number(class="form-control") }}
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+{% endblock %}

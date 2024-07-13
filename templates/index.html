@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+<div class="container mt-3 pt-5">
+  <div class="harmonica-container">
+    <img src="{{ url_for('static', filename='harmonica.png') }}" alt="Harmonica" class="harmonica">
+  </div>
+
+  <section>
+    <nav>
+      <ul class="menuItems">
+        <li><a href='/guitar' data-item='Guitars'>Guitars</a></li>
+        <li><a href='/basses' data-item='Basses'>Basses</a></li>
+        <li><a href='/keyboards' data-item='Keyboards'>Keyboards</a></li>
+        <li><a href='/microphones' data-item='Microphones'>Microphones</a></li>
+        <li>
+          <a href='/accessories' data-item='Accessories'>Accessories</a>
+          {% if current_user.is_authenticated %}
+            <a href="{{ url_for('view_basket', user_id=current_user.id) }}" class="basket-icon">
+              <img src="{{ url_for('static', filename='basket.png') }}" alt="Basket" width="40" height="40">
+            </a>
+          {% endif %}
+        </li>
+      </ul>
+    </nav>
+  </section>
+
+  <footer>
+    <div class="auth-buttons">
+      {% if current_user.is_authenticated %}
+        <a class="btn-custom" href="{{ url_for('logout') }}">Log out</a>
+      {% else %}
+        <a href="{{ url_for('register') }}">
+          <button class="register-btn">Register</button>
+        </a>
+        <a href="{{ url_for('login') }}">
+          <button class="login-btn">Login</button>
+        </a>
+      {% endif %}
+    </div>
+  </footer>
+</div>
+
+{% endblock %}

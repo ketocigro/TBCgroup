@@ -1,0 +1,175 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+.product-price {
+    font-size: 1.5rem;
+    color: #000;
+    margin-bottom: 20px;
+}
+
+nav {
+    margin: 15px 25px;
+    background: #f9f9f9;
+    padding: 16px;
+    position: relative;
+}
+
+.menuItems {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+.menuItems li {
+    margin: 0 15px;
+}
+
+.menuItems li a {
+    text-decoration: none;
+    color: #8f8f8f;
+    font-size: 24px;
+    font-weight: 400;
+    position: relative;
+    text-transform: uppercase;
+}
+
+.menuItems li a:hover {
+    color: #000;
+}
+
+.auth-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    margin-bottom: 15px; /* Added margin-bottom to provide some spacing */
+}
+
+.register-btn,
+.login-btn,
+.btn-custom {
+    margin: 0 10px; /* Adjusted margin for better spacing */
+    padding: 8px 16px;
+    background-color: #fff;
+    color: #000;
+    border: 2px solid #000;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.register-btn:hover,
+.login-btn:hover,
+.btn-custom:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+.harmonica-container {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.harmonica {
+    width: 300px;
+    height: 300px;
+}
+
+.navbar-main {
+    padding: 20px 30px;
+    margin-bottom: 20px;
+}
+
+.navbar-brand img.harmonica {
+    width: 200px;
+    height: 150px;
+}
+
+.navbar-nav .nav-link {
+    margin-right: 20px;
+    color: #007bff;
+    font-size: 18px;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #0056b3;
+}
+
+.container {
+    max-width: 1200px;
+    margin-top: 20px;
+    padding: 0 15px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.card {
+    height: 100%;
+}
+
+.card-body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-img-top {
+    max-height: 200px;
+    object-fit: cover;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.login-container,
+.register-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    margin: 50px auto;
+}
+
+
+.login-form, .register-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-form h2, .register-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.login-form input, .register-form input {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.login-form button, .register-form button {
+    background-color: #fff;
+    color: #000;
+    border: 2px solid #000;
+    padding: 12px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16 css
+
+
+

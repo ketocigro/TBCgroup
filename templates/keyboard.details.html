@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block body %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-main">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{{ url_for('home') }}">
+            <img src="/static/harmonica.png" alt="Harmonica" class="harmonica">
+        </a>
+
+        <div class="auth-buttons ms-auto">
+            {% if current_user.is_authenticated %}
+                <a class="btn-custom" href="{{ url_for('logout') }}">Log out</a>
+            {% else %}
+                <a href="{{ url_for('register') }}">
+                    <button class="register-btn">Register</button>
+                </a>
+                <a href="{{ url_for('login') }}">
+                    <button class="login-btn">Login</button>
+                </a>
+            {% endif %}
+        </div>
+    </div>
+</nav>
+<div class="container mt-5 pt-4 pb-4">
+    <div class="row">
+        <div class="col-md-6">
+            <img src="{{ keyboard.img }}" class="img-fluid" alt="{{ keyboard.name }}">
+        </div>
+        <div class="col-md-6">
+            <h1>{{ keyboard.name }}</h1>
+            <h2 class="product-price">{{ keyboard.price }}₾</h2>
+
+            <form method="POST" action="{{ url_for('add_to_basket', product_id=keyboard.id, product_type='keyboard') }}">
+                <input type="hidden" name="product_id" value="{{ keyboard.id }}">
+                <input type="hidden" name="product_type" value="keyboard">
+                <div class="mb-3">
+                    <label for="quantity" class="form-label">Quantity:</label>
+                    <input id="quantity" name="quantity" type="number" class="form-control" value="1" min="1">
+                </div>
+                <button type="submit" class="btn btn-custom">Add to Basket</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-md-12">
+            <h2>Add a Comment</h2>
+            <form method="POST" action="{{ url_for('submit_comment', product_id=keyboard.id, product_type='keyboard') }}">
+                <div class="mb-3">
+                    <label for="comment_text" class="form-label">Your Comment:</label>
+                    <textarea id="comment_text" name="comment_text" class="form-control" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit Comment</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-md-12">
+            <h2>Comments</h2>
+            <hr>
+            {% for comment in comments %}
+                {% if comment.product_type == 'keyboard' %}
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <p class="card-text">{{ comment.text }}</p>
+                            <small>{{ comment.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</small>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
